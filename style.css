@@ -15,7 +15,7 @@ body {
     color: white;
     overflow-x: hidden;
 }
-
+html, body { overflow: visible; }
 /*Up arrow*/
 .up-arrow{
     
