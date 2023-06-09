@@ -31,21 +31,61 @@ document.addEventListener('scroll',sticky);
 window.addEventListener('scroll',sticky);
 const sticked=document.getElementById('header');
 function sticky(){
-  if(scrollY > 0){
+  if(scrollY > 10){
       sticked.classList.add('sticked');
   }else{
     sticked.classList.remove('sticked');
   }
 }
 
-/* Library page */
-var index=1;
-var bItems=document.getElementsByClassName('b-self');
-var bLen=bItems.length;
-setInterval(translater,100);
-function translater(){
-  index++;
-  bItems.style.transform='translateX(-${index * 100}%)';
-
+/* Up arrow button */
+var arrow=document.querySelector('.up-arrow');
+document.addEventListener('scroll',showUp);
+function showUp(){
+  if(scrollY > 50){
+    arrow.style.display='block';
+  }else{
+    arrow.style.display='none';
+  }
 }
-console.log(bLen);
+arrow.addEventListener('click',scrollTop);
+function scrollTop(){
+  document.body.scrollTop=0;
+  document.documentElement.scrollTop = 0;
+}
+
+
+/* Library page */
+
+$(document).ready(function () {
+  $(".owl-carousel").owlCarousel({
+      items: 10,
+      loop: true,
+      margin: 10,
+      autoplay: true,
+      autoplayTimeout: 3000,
+      autoplayHoverPause: true,
+      center: false,
+      margin: 10,
+      slideBy: 1,
+      responsiveClass: true,
+      responsive: {
+          0: {
+              items: 1,
+              loop: true,
+          },
+          480: {
+              items: 2,
+              loop: true,
+          },
+          600: {
+              items: 3,
+              loop: true,
+          },
+          1000: {
+              items: 5,
+              loop: true,
+          }
+      }
+  });
+});
