@@ -30,6 +30,11 @@ html body {
     background-color: #926104;
     
 }
+.up-arrow:hover .arrow{
+    color: white;
+    transition-duration: 0.3s;
+    
+}
 .arrow[name="arrow-up-circle-outline"]{
     height: 45px;
     width: 45px;
